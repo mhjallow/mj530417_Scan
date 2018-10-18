@@ -3,6 +3,11 @@
 	course.
 		John Dolan		School of EECS		Summer2013
 **************************************************************************/
+/**
+* @file course.cc
+* @author John Dolan
+* @brief The implementation of the course class.
+*/
 #include "course.h"
 #include<cstdlib>
 #include<iostream>
@@ -86,6 +91,6 @@ ostream& operator <<(ostream& outs, const course& c){
 }
 
 void course::upper_course(){
-    for(size_t i =0; i<course_number.length(); ++i)
+    for(int i =0; i<course_number.length(); ++i)
 	course_number[i] = toupper(course_number[i]);
 }

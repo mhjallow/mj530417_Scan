@@ -1,47 +1,45 @@
-//*******************************************************************
-//                                                               	 
-//  Class: 	College                                	 
-//                                                                	 
-//  Author:  	Mohamed Jallow
-//  Email:   	mj530417@ohio.edu
-//                                                               	 
-//  Lab Section: Project 3
-//                                                               	 
-//  Description: The header for the College class. This class holds courses and student names, and allows the user to add courses in order, remove courses, see the total hours taken, see the gpa, display all the courses to the user,and test the copy constructor.
-//  Date: Spring 2018
-//                                                               	 
-//*******************************************************************
+//********************
+//Matthew Aberegg
+//Project 3
+//CS 2401
+//10/8/2015
+//********************
+/**
+* @file college.h
+* @author Matthew Aberegg
+* @brief The header file for the college class.
+*/
+
 #include <iostream>
 #include <fstream>
 #include <string>
 #include "course.h"
 #include "node.h"
+
+
 #ifndef COLLEGE_H
 #define COLLEGE_H
 
-class College {
-public:
-	College();
-	College(std::string name);
+
+class College{
+	public:
+	College(std::string s);
 	~College();
-	College(const College &other);
-	College &operator = (const College &other);
-	void display(std::ostream &ins);
-	void remove(std::string target);
-	void add(course c);
-	void load(std::istream& ins);
+	College(const College& other);
+	College& operator =(const College& other);
+	void add(course& c);
+	void remove(std::string coursename);
+	void display(std::ostream& outs);
 	double hours();
 	double gpa();
 	void save(std::ostream& outs);
-	void set_name(std::string name);
-	void deleteNode(node* firstNode);
+	void load(std::istream& ins);
+	private:
+	std::string name;
+	node * head;
 
 
 
-private:
-	std::string student;
-	node *head;
 
 };
-
 #endif
